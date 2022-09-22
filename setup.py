@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
 ## edit below variables as per your requirements -
-REPO_NAME = "REPO_NAME"
-AUTHOR_USER_NAME = "sushantsur23"
+REPO_NAME = "mlflow-NLP"
+AUTHOR_USER_NAME = "Nitesh kumar"
 SRC_REPO = "src"
 LIST_OF_REQUIREMENTS = []
 
@@ -14,11 +14,11 @@ setup(
     name=SRC_REPO,
     version="0.0.1",
     author=AUTHOR_USER_NAME,
-    description="A small package for DVC",
+    description="A small package for mlflow",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
-    author_email="sushant.sur23@gmail.com",
+    author_email="guptanitesh2711@gmail.com",
     packages=[SRC_REPO],
     license="MIT",
     python_requires=">=3.6",
