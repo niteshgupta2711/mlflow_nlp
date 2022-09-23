@@ -1,0 +1,216 @@
+[2022-09-23 09:23:27,828: INFO: stage_01_prepare_data]: 
+********************
+[2022-09-23 09:23:27,828: INFO: stage_01_prepare_data]: >>>>> stage One started <<<<<
+[2022-09-23 09:23:27,839: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-09-23 09:23:27,850: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-09-23 09:23:29,937: WARNING: connectionpool]: Retrying (Retry(total=4, connect=4, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016CF82D6608>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/2.0/mlflow/runs/get?run_uuid=d2bc3f3659494b4a9087457e4fb1de9e&run_id=d2bc3f3659494b4a9087457e4fb1de9e
+[2022-09-23 09:23:35,969: WARNING: connectionpool]: Retrying (Retry(total=3, connect=3, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016CF82F54C8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/2.0/mlflow/runs/get?run_uuid=d2bc3f3659494b4a9087457e4fb1de9e&run_id=d2bc3f3659494b4a9087457e4fb1de9e
+[2022-09-23 09:23:46,011: WARNING: connectionpool]: Retrying (Retry(total=2, connect=2, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016CF82F5E88>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/2.0/mlflow/runs/get?run_uuid=d2bc3f3659494b4a9087457e4fb1de9e&run_id=d2bc3f3659494b4a9087457e4fb1de9e
+[2022-09-23 09:24:04,053: WARNING: connectionpool]: Retrying (Retry(total=1, connect=1, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016CF82E8148>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/2.0/mlflow/runs/get?run_uuid=d2bc3f3659494b4a9087457e4fb1de9e&run_id=d2bc3f3659494b4a9087457e4fb1de9e
+[2022-09-23 09:24:38,086: WARNING: connectionpool]: Retrying (Retry(total=0, connect=0, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016CF82EF6C8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/2.0/mlflow/runs/get?run_uuid=d2bc3f3659494b4a9087457e4fb1de9e&run_id=d2bc3f3659494b4a9087457e4fb1de9e
+[2022-09-23 09:24:40,125: ERROR: stage_01_prepare_data]: API request to http://127.0.0.1:1234/api/2.0/mlflow/runs/get failed with exception HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /api/2.0/mlflow/runs/get?run_uuid=d2bc3f3659494b4a9087457e4fb1de9e&run_id=d2bc3f3659494b4a9087457e4fb1de9e (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016CF830E708>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+Traceback (most recent call last):
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\http\client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\http\client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\http\client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\http\client.py", line 1036, in _send_output
+    self.send(msg)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\http\client.py", line 976, in send
+    self.connect()
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000016CF830E708>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\requests\adapters.py", line 499, in send
+    timeout=timeout,
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 828, in urlopen
+    **response_kw
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 828, in urlopen
+    **response_kw
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 828, in urlopen
+    **response_kw
+  [Previous line repeated 2 more times]
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 788, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /api/2.0/mlflow/runs/get?run_uuid=d2bc3f3659494b4a9087457e4fb1de9e&run_id=d2bc3f3659494b4a9087457e4fb1de9e (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016CF830E708>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\utils\rest_utils.py", line 169, in http_request
+    **kwargs,
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\utils\rest_utils.py", line 97, in _get_http_response_with_retries
+    return session.request(method, url, **kwargs)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\requests\adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /api/2.0/mlflow/runs/get?run_uuid=d2bc3f3659494b4a9087457e4fb1de9e&run_id=d2bc3f3659494b4a9087457e4fb1de9e (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016CF830E708>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "src/stage_01_prepare_data.py", line 63, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_01_prepare_data.py", line 33, in main
+    mlflow.log_param("split", split)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\tracking\fluent.py", line 542, in log_param
+    run_id = _get_or_start_run().info.run_id
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\tracking\fluent.py", line 1642, in _get_or_start_run
+    return start_run()
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\tracking\fluent.py", line 289, in start_run
+    active_run_obj = client.get_run(existing_run_id)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\tracking\client.py", line 150, in get_run
+    return self._tracking_client.get_run(run_id)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 72, in get_run
+    return self.store.get_run(run_id)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\store\tracking\rest_store.py", line 163, in get_run
+    response_proto = self._call_endpoint(GetRun, req_body)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\store\tracking\rest_store.py", line 57, in _call_endpoint
+    return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\utils\rest_utils.py", line 268, in call_endpoint
+    host_creds=host_creds, endpoint=endpoint, method=method, params=json_body
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\utils\rest_utils.py", line 178, in http_request
+    raise MlflowException("API request to %s failed with exception %s" % (url, e))
+mlflow.exceptions.MlflowException: API request to http://127.0.0.1:1234/api/2.0/mlflow/runs/get failed with exception HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /api/2.0/mlflow/runs/get?run_uuid=d2bc3f3659494b4a9087457e4fb1de9e&run_id=d2bc3f3659494b4a9087457e4fb1de9e (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016CF830E708>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+[2022-09-23 09:26:23,005: INFO: stage_01_prepare_data]: 
+********************
+[2022-09-23 09:26:23,005: INFO: stage_01_prepare_data]: >>>>> stage One started <<<<<
+[2022-09-23 09:26:23,014: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-09-23 09:26:23,020: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-09-23 09:26:25,134: WARNING: connectionpool]: Retrying (Retry(total=4, connect=4, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024255FC6148>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/2.0/mlflow/runs/get?run_uuid=dcd9d98c134049768dfc568cfe0b4197&run_id=dcd9d98c134049768dfc568cfe0b4197
+[2022-09-23 09:26:31,175: WARNING: connectionpool]: Retrying (Retry(total=3, connect=3, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024255FE6288>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/2.0/mlflow/runs/get?run_uuid=dcd9d98c134049768dfc568cfe0b4197&run_id=dcd9d98c134049768dfc568cfe0b4197
+[2022-09-23 09:26:41,215: WARNING: connectionpool]: Retrying (Retry(total=2, connect=2, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024255FE6D48>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/2.0/mlflow/runs/get?run_uuid=dcd9d98c134049768dfc568cfe0b4197&run_id=dcd9d98c134049768dfc568cfe0b4197
+[2022-09-23 09:26:59,253: WARNING: connectionpool]: Retrying (Retry(total=1, connect=1, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024255FD9188>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/2.0/mlflow/runs/get?run_uuid=dcd9d98c134049768dfc568cfe0b4197&run_id=dcd9d98c134049768dfc568cfe0b4197
+[2022-09-23 09:27:33,294: WARNING: connectionpool]: Retrying (Retry(total=0, connect=0, read=5, redirect=5, status=5)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024255FE0508>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/2.0/mlflow/runs/get?run_uuid=dcd9d98c134049768dfc568cfe0b4197&run_id=dcd9d98c134049768dfc568cfe0b4197
+[2022-09-23 09:27:35,337: ERROR: stage_01_prepare_data]: API request to http://127.0.0.1:5000/api/2.0/mlflow/runs/get failed with exception HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/2.0/mlflow/runs/get?run_uuid=dcd9d98c134049768dfc568cfe0b4197&run_id=dcd9d98c134049768dfc568cfe0b4197 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000242560025C8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+Traceback (most recent call last):
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+    raise err
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\http\client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\http\client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\http\client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\http\client.py", line 1036, in _send_output
+    self.send(msg)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\http\client.py", line 976, in send
+    self.connect()
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000242560025C8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\requests\adapters.py", line 499, in send
+    timeout=timeout,
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 828, in urlopen
+    **response_kw
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 828, in urlopen
+    **response_kw
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 828, in urlopen
+    **response_kw
+  [Previous line repeated 2 more times]
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\connectionpool.py", line 788, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/2.0/mlflow/runs/get?run_uuid=dcd9d98c134049768dfc568cfe0b4197&run_id=dcd9d98c134049768dfc568cfe0b4197 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000242560025C8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\utils\rest_utils.py", line 169, in http_request
+    **kwargs,
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\utils\rest_utils.py", line 97, in _get_http_response_with_retries
+    return session.request(method, url, **kwargs)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\requests\adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/2.0/mlflow/runs/get?run_uuid=dcd9d98c134049768dfc568cfe0b4197&run_id=dcd9d98c134049768dfc568cfe0b4197 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000242560025C8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "src/stage_01_prepare_data.py", line 63, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_01_prepare_data.py", line 33, in main
+    mlflow.log_param("split", split)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\tracking\fluent.py", line 542, in log_param
+    run_id = _get_or_start_run().info.run_id
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\tracking\fluent.py", line 1642, in _get_or_start_run
+    return start_run()
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\tracking\fluent.py", line 289, in start_run
+    active_run_obj = client.get_run(existing_run_id)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\tracking\client.py", line 150, in get_run
+    return self._tracking_client.get_run(run_id)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 72, in get_run
+    return self.store.get_run(run_id)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\store\tracking\rest_store.py", line 163, in get_run
+    response_proto = self._call_endpoint(GetRun, req_body)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\store\tracking\rest_store.py", line 57, in _call_endpoint
+    return call_endpoint(self.get_host_creds(), endpoint, method, json_body, response_proto)
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\utils\rest_utils.py", line 268, in call_endpoint
+    host_creds=host_creds, endpoint=endpoint, method=method, params=json_body
+  File "D:\ALL_Python\AI_ops\PROJECTS\mlflow_NLP_simple\env\lib\site-packages\mlflow\utils\rest_utils.py", line 178, in http_request
+    raise MlflowException("API request to %s failed with exception %s" % (url, e))
+mlflow.exceptions.MlflowException: API request to http://127.0.0.1:5000/api/2.0/mlflow/runs/get failed with exception HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/2.0/mlflow/runs/get?run_uuid=dcd9d98c134049768dfc568cfe0b4197&run_id=dcd9d98c134049768dfc568cfe0b4197 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000242560025C8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+[2022-09-23 09:33:52,837: INFO: stage_01_prepare_data]: 
+********************
+[2022-09-23 09:33:52,837: INFO: stage_01_prepare_data]: >>>>> stage One started <<<<<
+[2022-09-23 09:33:52,848: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-09-23 09:33:52,855: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-09-23 09:33:52,913: INFO: common]: created directory at: artifacts\prepared
+[2022-09-23 09:34:05,110: INFO: stage_01_prepare_data]: >>>>> stage One completed!<<<<<
+

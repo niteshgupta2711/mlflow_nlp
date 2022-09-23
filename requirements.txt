@@ -1,13 +1,11 @@
 numpy
 pandas
 sklearn
-mkdocs-material
-ipykernel
 PyYAML
 tqdm
-dvc
 Scipy
 Scikit-learn
-lxml
+pandas-profiling
+mlflow
 ### local packages -
--e . # << uncomment this to install from setup.py
+ # << uncomment this to install from setup.py

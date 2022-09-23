@@ -1,14 +1,15 @@
 import argparse
 import os
 import shutil
-from pandas import test
 from tqdm import tqdm
 import logging
-from src.utils import read_yaml, create_directories, process_posts
+from src.utils.common import read_yaml, create_directories
+from src.utils.data_mgmt import process_posts
 import random
+import mlflow
 
 
-STAGE = "Prepare_data" ## <<< change stage name 
+STAGE = "One"
 
 logging.basicConfig(
     filename=os.path.join("logs", 'running_logs.log'), 
@@ -17,35 +18,36 @@ logging.basicConfig(
     filemode="a"
     )
 
-
 def main(config_path, params_path):
-    ## read config files
+    ## converting XML data tsv
+    #mlflow.set_tracking_uri("http://127.0.0.1:5000")
+
     config = read_yaml(config_path)
     params = read_yaml(params_path)
-    
-    source_data_dir = config["source_data"]["data_dir"]
-    source_data_file = config["source_data"]["data_file"]
 
-    source_data_path = os.path.join(source_data_dir,source_data_file)
+    source_data = config["source_data"]
+    input_data = os.path.join(source_data["data_dir"], source_data["data_file"])
 
     split = params["prepare"]["split"]
-    seed = params["prepare"]["seed"] 
-    tag = params["prepare"]["tag"]
+    seed = params["prepare"]["seed"]
+    mlflow.log_param("split", split)
+    mlflow.log_param("seed", seed)
 
     random.seed(seed)
 
     artifacts = config["artifacts"]
-    prepare_data_dir_path = os.path.join(artifacts["ARTIFACTS_DIR"],artifacts["PREPARED_DATA"])
-    create_directories([prepare_data_dir_path])
+    prepared_data_dir_path = os.path.join(artifacts["ARTIFACTS_DIR"], artifacts["PREPARED_DATA"])
+    create_directories([prepared_data_dir_path])
 
-    train_data_path =  os.path.join(prepare_data_dir_path, artifacts["TRAIN_DATA"])
-    test_data_path = os.path.join(prepare_data_dir_path, artifacts["TEST_DATA"])
+    train_data_path = os.path.join(prepared_data_dir_path, artifacts["TRAIN_DATA"])
+    test_data_path = os.path.join(prepared_data_dir_path, artifacts["TEST_DATA"])
+    
+    encode = "utf8"
+    with open(input_data, encoding=encode) as fd_in:
+        with open(train_data_path, "w", encoding=encode) as fd_out_train:
+            with open(test_data_path, "w", encoding=encode) as fd_out_test:
+                process_posts(fd_in, fd_out_train, fd_out_test, "<python>", split)
 
-    encode  = "utf8"
-    with open(source_data_path,encoding= encode) as fd_in:      #reading actual input data
-        with open(train_data_path,"w",encoding= encode) as fd_out_train:    #writing the train data
-            with open(test_data_path,"w", encoding= encode) as fd_out_test: #writing the test data
-                process_posts(fd_in,fd_out_train, fd_out_test, tag, split)
 
 
 

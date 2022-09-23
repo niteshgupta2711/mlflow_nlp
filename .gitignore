@@ -132,3 +132,5 @@ artifacts/prepared/test.tsv
 artifacts/prepared/train.tsv
 .dvc/config
 *.pkl
+mlruns/
+env/
