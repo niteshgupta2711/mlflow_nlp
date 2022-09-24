@@ -1,13 +1,13 @@
+import argparse
+import os
 import shutil
 from tqdm import tqdm
 import logging
 from src.utils.common import read_yaml, save_json
 import joblib
 import numpy as np
-import os
 import sklearn.metrics as metrics
 import math
-import argparse
 import mlflow
 
 STAGE = "Four"
@@ -22,7 +22,7 @@ logging.basicConfig(
 
 
 def main(config_path):
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    mlflow.set_tracking_uri("http://127.0.0.1:1234")
     
     config = read_yaml(config_path)
 
